@@ -10,30 +10,33 @@ const About = (props) => {
     return (
         <div className={`${classes.section} ${dark && classes.sectionDark}`}>
             <div className={classes.sectionContent} id={id}>
-                <Typography variant="h4">{title}</Typography>
+                <Typography variant="h4" style={{ fontStyle: 'italic' }}>{title}</Typography>
                 <Card className={classes.Card}>
-                    <Grid container>
-                        <Grid item xs={5}>
-                            <CardMedia image={Foto} className={classes.cardMedia} title="picture"/>
-                        </Grid>
-                        <Grid item xs={7} lg={7}>
-                            <CardContent className={classes.cardContent}>
-                                <TypeWriterEffect 
-                                text="¡Hola! mi nombre es Esteban Muñoz, tengo 24 años, vivo en la ciudad de Bogotá - Colombia, estudio Ingienieria de Sistemas y Computacion en la Universidad Católica de Colombia, soy una persona apasionada por el desarrollo que desempeña funciones en lenguajes de programación como lo son, Javascript, C#, C++. Ademas, con una gran disposicion y actitud para aprender sobre nuevos temas. "
-                                textStyle={{ fontSize: '2rem', fontWeight: '700px', color: 'tomato' }}
-                                startDelay={100}
-                                cursorColor="black"
-                                typeSpeed={50}
-                                />
-                            </CardContent>
-                            <CardActions>
-                                <Button variant="contained" className={classes.pdfButton}>
-                                    <a href={CV} download>
-                                    Download CV
-                                    </a>
-                                </Button>
-                            </CardActions>
-                        </Grid>
+                    <CardMedia image={Foto} className={classes.cardMedia} title="picture"/>
+                    <Grid item xs={7} lg={7}>
+                        <CardContent className={classes.cardContent}>
+                            <TypeWriterEffect 
+                            text="¡Hola! mi nombre es Esteban Muñoz."
+                            textStyle={{ fontSize: '2rem', fontWeight: '700px', color: 'tomato' }}
+                            startDelay={100}
+                            cursorColor="black"
+                            typeSpeed={50}
+                            />
+                            <TypeWriterEffect 
+                            text="Tengo 24 años, vivo en la ciudad de Bogotá - Colombia, estudio Ingienieria de Sistemas y Computacion en la Universidad Católica de Colombia."
+                            textStyle={{ fontSize: '1rem', fontWeight: '700px', color: 'black' }}
+                            startDelay={2500}
+                            cursorColor="black"
+                            typeSpeed={50}
+                            />
+                        </CardContent>
+                        <CardActions>
+                            <Button variant="contained" className={classes.pdfButton}>
+                                <a href={CV} download>
+                                Download CV
+                                </a>
+                            </Button>
+                        </CardActions>
                     </Grid>
                 </Card>
             </div>
@@ -67,7 +70,7 @@ const useStyles = makeStyles((theme) => ({
     },
     pdfButton:{
         position: 'absolute',
-        bottom: '5rem',
+        bottom: '3rem',
         right: '4rem',
         [theme.breakpoints.down("sm")]:{
             bottom: 40,
@@ -86,6 +89,9 @@ const useStyles = makeStyles((theme) => ({
         "& a:hover": {
             color: 'tomato',
         },
+    },
+    cardContent: {
+        marginTop: theme.spacing(2),
     },
 }));
 
